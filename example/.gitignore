@@ -29,9 +29,6 @@ build/
 .gradle
 local.properties
 *.iml
-/android/gradlew
-/android/gradlew.bat
-/android/gradle/
 
 # Visual Studio Code
 #
@@ -65,6 +62,3 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
-
-# Library
-lib/

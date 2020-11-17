@@ -113,7 +113,6 @@ class RNMediaPickerModule(reactContext: ReactApplicationContext) : ReactContextB
                     .showPreview(showPreview)
                     .originalEnable(maxOriginalSize != 0)
                     .maxOriginalSize(maxOriginalSize)
-                    .theme(R.style.Popup_Zhihu)
                     .forResult(23)
         } catch (e: Exception) {
             mPickerPromise!!.reject("E_FAILED_TO_SHOW_PICKER", e);
