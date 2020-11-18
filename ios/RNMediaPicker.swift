@@ -74,7 +74,6 @@ var viewController: TLPhotosPickerViewController? = nil
                 media.setObject(asset.phAsset!.pixelWidth, forKey: NSString("width"))
                 media.setObject(asset.phAsset!.pixelHeight, forKey: NSString("height"))
                 let semaphore = DispatchSemaphore(value: 0)
-                
                 asset.tempCopyMediaFile(
                     videoRequestOptions: nil,
                     imageRequestOptions: nil,
@@ -89,14 +88,18 @@ var viewController: TLPhotosPickerViewController? = nil
                         media.setObject(url.absoluteString, forKey: NSString("path"))
                         media.setObject(mimeType, forKey: NSString("type"))
                         if (asset.type == .photo) {
-                            asset.photoSize(completion: {(fileSize) in media.setObject(fileSize, forKey: NSString("size"))})
-                            medias.append(media)
-                            semaphore.signal()
+                            asset.photoSize(completion: {(fileSize) in 
+                                media.setObject(fileSize, forKey: NSString("size"))
+                                medias.append(media)
+                                semaphore.signal()
+                            })
                         } else if (asset.type == .video) {
                             media.setObject(asset.phAsset!.duration, forKey: NSString("duration"))
-                            asset.videoSize(completion: {(fileSize) in media.setObject(fileSize, forKey: NSString("size"))})
-                            medias.append(media)
-                            semaphore.signal()
+                            asset.videoSize(completion: {(fileSize) in 
+                                media.setObject(fileSize, forKey: NSString("size"))
+                                medias.append(media)
+                                semaphore.signal()
+                            })
                         }else {
                             medias.append(media)
                             semaphore.signal()

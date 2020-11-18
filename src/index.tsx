@@ -25,18 +25,21 @@ export type MediaPickerOptions = {
 }
 
 export type MediaPickerRespone = {
-  uri: string
-  path: string
-  size: number
-  name: string
-  type: string
-  width?: number
-  height?: number
-  duration?: number
+  success: {
+    uri: string
+    path: string
+    size: number
+    name: string
+    type: string
+    width?: number
+    height?: number
+    duration?: number
+  }[]
+  error: number
 }
 
 type MediaPickerType = {
-  launchGallery(options: MediaPickerOptions): Promise<MediaPickerRespone[]>
+  launchGallery(options: MediaPickerOptions): Promise<MediaPickerRespone>
 }
 
 const { RNMediaPicker } = NativeModules
