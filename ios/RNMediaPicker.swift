@@ -10,7 +10,7 @@ import UIKit
 import TLPhotoPicker
 
 @objc(RNMediaPicker)
-class RNMediaPicker: NSObject {
+class RNMediaPicker: NSObject, TLPhotosPickerViewControllerDelegate {
 
 var viewController: TLPhotosPickerViewController? = nil
     var resolve: RCTPromiseResolveBlock? = nil
